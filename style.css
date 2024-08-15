@@ -3,6 +3,13 @@
     src: url(/Font/Norse-Bold.otf);
 }
 
+:root {
+    --main-color: #1c4859;
+    --background-color: rgb(245, 245, 245);
+    --focused-input: blue;
+    --invalid-input: red;
+}
+
 body {
     height: 100vh;
     width: 100vw;
@@ -42,7 +49,7 @@ main {
 }
 
 .header {
-    background-color: rgb(245, 245, 245);
+    background-color: var(--background-color);
     flex-grow: 1;
 }
 
@@ -90,21 +97,25 @@ main {
     }
 
     .invalid-state {
-        color: red;
+        color: var(--invalid-input);
         font-size: 0.8em;
         visibility: hidden;
     }
 
     & input:focus {
         outline: none;
-        border-color: blue;
+        border-color: var(--focused-input);
         box-shadow: 2px 2px 2px lightgrey;
     }
 
     & input[type="password"]:invalid {
         outline: none;
-        border-color: red;
-        box-shadow: none;
+        border-color: var(--invalid-input);
+    }
+
+    & input[type="password"]:invalid:focus {
+        outline: none;
+        border-color: var(--focused-input);
     }
 
     & input[type="password"]:invalid~.invalid-state {
@@ -113,12 +124,41 @@ main {
 }
 
 .footer {
-    font-size: 1.5rem;
-    background-color: rgb(245, 245, 245);
+    background-color: var(--background-color);
     flex-grow: 1;
+    padding: 32px;
+
+    & .footer-container {
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    & button {
+        color: white;
+        background-color: var(--main-color);
+        width: 256px;
+        padding: 8px;
+        border-radius: 8px;
+    }
+
+    & p {
+        font-size: 1rem;
+    }
+
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--main-color);
 }
 
 p {
+    font-weight: bold;
     font-size: 1.5rem;
-    font-weight: 600;
 }
