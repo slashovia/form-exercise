@@ -29,7 +29,7 @@
         </div>
         <div class="form-container">
             <p>Let's do this!</p>
-            <form method="post">
+            <form method="post" id="form">
                 <div>
                     <label for="first_name">first name</label>
                     <input type="text" name="first_name" id="first_name" required>
@@ -48,7 +48,7 @@
                 </div>
                 <div>
                     <label for="password">password</label>
-                    <input type="password" name="password" id="password" pattern="[a-z0-9]{8,16}">
+                    <input type="password" name="password" id="password" pattern="[a-z0-9]{8,16}" required>
                     <span class="invalid-state">* Passwords do not match</span>
                 </div>
                 <div>
@@ -56,11 +56,13 @@
                     <input type="password" name="confirm_password" id="confirm_password" pattern="[a-z0-9]{8,16}"
                         required>
                 </div>
-
             </form>
         </div>
-        <div class="footer"><button type="submit">Create Account</button>
-            <p>Already have an account? <a href="#">Log in</a></p>
+        <div class="footer">
+            <div class="footer-container">
+                <button form="form" type="submit">Create Account</button>
+                <p>Already have an account? <a href="#">Log in</a></p>
+            </div>
         </div>
     </main>
 
